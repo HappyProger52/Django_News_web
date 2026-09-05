@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}News Portal{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="top-line">
+        <div class="container">
+            <div class="logo">
+                <span>NEWS</span> PORTAL
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">Главная</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">О нас</a>
+                </li>
+                <li>
+                    <a href="{% url 'contacts' %}">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            Выполнил: <strong>Бабенко Ян Евгеньевич</strong> |
+            Группа: <strong>243 - 323</strong>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

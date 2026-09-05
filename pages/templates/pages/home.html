@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная | News Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <span class="tag">Главная</span>
+
+    <h1>Добро пожаловать на новостной портал</h1>
+
+    <p>
+        Это главная страница сайта, выполненного в стиле BBC.
+        В будущем здесь будет расположен список актуальных новостей,
+        статей и аналитических материалов.
+    </p>
+
+    <p>
+        Сайт создан с использованием Python, Django,
+        маршрутов urls.py и шаблонизатора Django Templates.
+    </p>
+</section>
+
+<section class="news-grid">
+    <div class="news-card">
+        <span class="tag">Мир</span>
+        <h3>Главные события дня</h3>
+        <p>
+            Здесь может располагаться краткое описание важной новости.
+        </p>
+    </div>
+
+    <div class="news-card">
+        <span class="tag">Технологии</span>
+        <h3>Новости технологий</h3>
+        <p>
+            Раздел для публикации новостей из мира IT и науки.
+        </p>
+    </div>
+
+    <div class="news-card">
+        <span class="tag">Общество</span>
+        <h3>Социальные новости</h3>
+        <p>
+            В этом блоке будут размещаться материалы об обществе.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

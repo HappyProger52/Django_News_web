@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Контакты | News Portal
+{% endblock %}
+
+{% block content %}
+
+<h1 class="page-title">Контакты</h1>
+
+<div class="text-card">
+    <p>
+        На этой странице отображаются контактные данные,
+        которые передаются из Django view в HTML-шаблон.
+    </p>
+</div>
+
+<section class="news-grid">
+    {% for contact in contacts %}
+        <div class="contact-card">
+            <h3>{{ contact.title }}</h3>
+
+            <p>
+                <strong>{{ contact.value }}</strong>
+            </p>
+
+            <p>
+                {{ contact.description }}
+            </p>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
