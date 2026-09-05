@@ -341,3 +341,10 @@ img.preview-image {
 .submit-btn:hover {
     background: #8f0000;
 }
+
+nav span {
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    padding: 12px 16px;
+}

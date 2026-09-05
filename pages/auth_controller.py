@@ -5,6 +5,8 @@ from django.core.validators import validate_email
 from django.middleware.csrf import rotate_token
 from django.shortcuts import redirect, render
 
+from .models import Role, UserRole
+
 
 class AuthController:
 
@@ -62,6 +64,18 @@ class AuthController:
         )
 
         user.save()
+
+        reader_role, _ = Role.objects.get_or_create(
+            code='reader',
+            defaults={
+                'name': 'Читатель'
+            }
+        )
+
+        UserRole.objects.create(
+            user=user,
+            role=reader_role
+        )
 
         return redirect('login')
 

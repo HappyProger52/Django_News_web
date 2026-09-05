@@ -37,22 +37,35 @@
         </li>
 
         {% if user.is_authenticated %}
-            <li>
-                <span>Пользователь: {{ user.first_name }}</span>
-            </li>
+    <li>
+        <span>
+            Пользователь: {{ user.first_name|default:user.username }}
+        </span>
+    </li>
 
-            <li>
-                <a href="{% url 'logout' %}">Выйти</a>
-            </li>
-        {% else %}
-            <li>
-                <a href="{% url 'login' %}">Войти</a>
-            </li>
+    <li>
+        <span>
+            Роль:
+            {% if user.user_role.role.code == 'moderator' %}
+                Модератор
+            {% else %}
+                Читатель
+            {% endif %}
+        </span>
+    </li>
 
-            <li>
-                <a href="{% url 'register' %}">Регистрация</a>
-            </li>
-        {% endif %}
+    <li>
+        <a href="{% url 'logout' %}">Выйти</a>
+    </li>
+{% else %}
+    <li>
+        <a href="{% url 'login' %}">Войти</a>
+    </li>
+
+    <li>
+        <a href="{% url 'register' %}">Регистрация</a>
+    </li>
+{% endif %}
     </ul>
 </nav>
 </header>
