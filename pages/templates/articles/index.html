@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Новости из базы данных | News Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <span class="tag">База данных</span>
+
+    <h1>Новости из таблицы Article</h1>
+
+    <p>
+        На этой странице отображаются новости, которые были автоматически
+        добавлены в базу данных с помощью Faker.
+    </p>
+</section>
+
+<section class="news-list">
+    {% for article in articles %}
+        <article class="json-news-card">
+            <img 
+                src="{% static 'images/'|add:article.preview_image %}" 
+                alt="{{ article.title }}" 
+                class="preview-image"
+            >
+
+            <div class="json-news-content">
+                <span class="date">
+                    {{ article.published_at }}
+                </span>
+
+                <h2>
+                    {{ article.title }}
+                </h2>
+
+                <p>
+                    {{ article.short_description }}
+                </p>
+            </div>
+        </article>
+    {% empty %}
+        <div class="text-card">
+            <p>
+                В базе данных пока нет новостей.
+            </p>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
