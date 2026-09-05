@@ -13,13 +13,17 @@
     <h1>Новости из таблицы Article</h1>
 
     <p>
-        На этой странице отображаются новости, которые были автоматически
-        добавлены в базу данных с помощью Faker.
+        На этой странице отображаются новости, которые были добавлены
+        в базу данных. Реализованы пагинация и CRUD-операции.
     </p>
+
+    <a href="{% url 'article_create' %}" class="read-more">
+        Добавить новость
+    </a>
 </section>
 
 <section class="news-list">
-    {% for article in articles %}
+    {% for article in page_obj %}
         <article class="json-news-card">
             <img 
                 src="{% static 'images/'|add:article.preview_image %}" 
@@ -39,6 +43,18 @@
                 <p>
                     {{ article.short_description }}
                 </p>
+
+                <a href="{% url 'article_show' article.id %}" class="read-more">
+                    Читать далее
+                </a>
+
+                <a href="{% url 'article_edit' article.id %}" class="read-more">
+                    Редактировать
+                </a>
+
+                <a href="{% url 'article_delete' article.id %}" class="delete-link">
+                    Удалить
+                </a>
             </div>
         </article>
     {% empty %}
@@ -49,5 +65,23 @@
         </div>
     {% endfor %}
 </section>
+
+{% if page_obj.has_other_pages %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">Первая</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
+        {% endif %}
+
+        <span>
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Вперёд</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
+        {% endif %}
+    </div>
+{% endif %}
 
 {% endblock %}

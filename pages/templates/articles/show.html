@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ article.title }} | News Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="gallery-page">
+    <a href="{% url 'articles' %}" class="back-link">
+        ← Вернуться к списку
+    </a>
+
+    <h1 class="page-title">
+        {{ article.title }}
+    </h1>
+
+    <p class="date">
+        {{ article.published_at }}
+    </p>
+
+    <div class="full-image-wrapper">
+        <img 
+            src="{% static 'images/'|add:article.full_image %}" 
+            alt="{{ article.title }}" 
+            class="full-image"
+        >
+    </div>
+
+    <div class="text-card">
+        <p>
+            {{ article.description }}
+        </p>
+    </div>
+
+    <a href="{% url 'article_edit' article.id %}" class="read-more">
+        Редактировать
+    </a>
+
+    <a href="{% url 'article_delete' article.id %}" class="delete-link">
+        Удалить
+    </a>
+</section>
+
+{% endblock %}
