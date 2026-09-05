@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Галерея | News Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="gallery-page">
+    <a href="{% url 'home' %}" class="back-link">
+        ← Вернуться на главную
+    </a>
+
+    <h1 class="page-title">{{ article.name }}</h1>
+
+    <p class="date">
+        {{ article.date }}
+    </p>
+
+    <div class="full-image-wrapper">
+        <img src="{% static article.full_path %}" alt="{{ article.name }}" class="full-image">
+    </div>
+
+    <div class="text-card">
+        <p>
+            {{ article.desc }}
+        </p>
+    </div>
+</section>
+
+{% endblock %}

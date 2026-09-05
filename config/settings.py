@@ -45,8 +45,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        # Так как templates лежит внутри pages/templates,
-        # здесь можно оставить пустой список
+     
         'DIRS': [],
 
         # Это позволяет Django искать шаблоны внутри приложений

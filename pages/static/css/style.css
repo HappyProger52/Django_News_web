@@ -1,12 +1,14 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     background: #f4f4f4;
     color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
 }
 
 .top-line {
@@ -15,14 +17,8 @@ body {
     padding: 18px 0;
 }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
 .logo {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -31,7 +27,7 @@ body {
     background: white;
     color: #b80000;
     padding: 4px 8px;
-    margin-right: 4px;
+    margin-right: 5px;
 }
 
 nav {
@@ -39,91 +35,156 @@ nav {
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
     display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav li {
-    border-right: 1px solid #333;
+    margin-right: 25px;
 }
 
 nav a {
-    display: block;
     color: white;
     text-decoration: none;
-    padding: 14px 20px;
+    display: block;
+    padding: 14px 0;
     font-weight: bold;
 }
 
 nav a:hover {
-    background: #b80000;
+    color: #ffcccc;
 }
 
 main {
-    min-height: 70vh;
     padding: 30px 0;
+    min-height: 70vh;
 }
 
-.page-title {
-    border-bottom: 4px solid #b80000;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 32px;
+footer {
+    background: #111;
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
 }
 
 .hero {
     background: white;
-    padding: 35px;
-    border-left: 6px solid #b80000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.hero h1 {
-    margin-top: 0;
-    font-size: 38px;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 18px;
-    margin-top: 25px;
-}
-
-.news-card,
-.contact-card,
-.text-card {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border-top: 4px solid #b80000;
-}
-
-.news-card h3,
-.contact-card h3 {
-    margin-top: 0;
+    padding: 30px;
+    border-top: 5px solid #b80000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .tag {
-    display: inline-block;
     background: #b80000;
     color: white;
     padding: 4px 8px;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.page-title {
+    border-left: 6px solid #b80000;
+    padding-left: 12px;
+}
+
+.text-card {
+    background: white;
+    padding: 20px;
+    border-top: 4px solid #b80000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 25px;
+}
+
+.json-news-card {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 22px;
+    align-items: start;
+    background: white;
+    padding: 20px;
+    border-top: 4px solid #b80000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.preview-image {
+    width: 260px;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-image:hover {
+    opacity: 0.85;
+}
+
+.json-news-content h2 {
+    margin-top: 6px;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    font-size: 24px;
 }
 
-footer {
-    background: #222;
-    color: #ddd;
-    padding: 20px 0;
-    margin-top: 30px;
+.date {
+    display: inline-block;
+    color: #777;
     font-size: 14px;
+    margin-bottom: 8px;
 }
 
-footer strong {
+.read-more,
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    background: #b80000;
     color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: bold;
+}
+
+.read-more:hover,
+.back-link:hover {
+    background: #8f0000;
+}
+
+.gallery-page {
+    background: white;
+    padding: 25px;
+    border-top: 4px solid #b80000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.full-image-wrapper {
+    margin: 20px 0;
+}
+
+.full-image {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .json-news-card {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+img.preview-image {
+    width: 260px !important;
+    height: 170px !important;
+    object-fit: cover !important;
 }
