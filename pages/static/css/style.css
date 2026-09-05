@@ -298,3 +298,46 @@ img.preview-image {
 .errors ul {
     margin-bottom: 0;
 }
+
+.errors {
+    background: #ffe5e5;
+    color: #8f0000;
+    border-left: 5px solid #b80000;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.errors ul {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background: #b80000;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #8f0000;
+}

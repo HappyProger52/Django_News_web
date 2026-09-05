@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Авторизация | News Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="signin-page">
+    <h1 class="page-title">
+        Авторизация
+    </h1>
+
+    <p>
+        Введите email и пароль для входа в веб-приложение.
+    </p>
+
+    {% if errors %}
+        <div class="errors">
+            <strong>Ошибка авторизации.</strong>
+            <ul>
+                {% for key, error in errors.items %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form action="{% url 'login_store' %}" method="post" class="signin-form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                value="{{ old.email }}"
+                placeholder="Введите email"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Введите пароль"
+            >
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Войти
+        </button>
+
+        <a href="{% url 'register' %}" class="back-link">
+            Нет аккаунта? Зарегистрироваться
+        </a>
+    </form>
+</section>
+
+{% endblock %}
