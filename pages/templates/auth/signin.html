@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Регистрация | News Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="signin-page">
+    <h1 class="page-title">Регистрация</h1>
+
+    <p>
+        На данной странице реализована форма регистрации пользователя.
+        Данные отправляются методом POST и проходят валидацию на стороне сервера.
+    </p>
+
+    <form action="{% url 'signin' %}" method="post" class="signin-form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Введите имя"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Введите email"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Введите пароль"
+            >
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Зарегистрироваться
+        </button>
+    </form>
+</section>
+
+{% endblock %}

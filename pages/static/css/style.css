@@ -188,3 +188,51 @@ img.preview-image {
     height: 170px !important;
     object-fit: cover !important;
 }
+
+.signin-page {
+    background: white;
+    padding: 25px;
+    border-top: 4px solid #b80000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.signin-form {
+    margin-top: 25px;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #b80000;
+}
+
+.submit-btn {
+    background: #b80000;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #8f0000;
+}
