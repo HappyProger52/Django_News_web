@@ -2,6 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ArticleForm
+from .mail import send_article_created_email
 from .models import Article
 
 
@@ -40,7 +41,13 @@ class ArticleController:
         form = ArticleForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            article = form.save()
+
+            try:
+                send_article_created_email(article)
+            except Exception as error:
+                print(f'Ошибка отправки письма: {error}')
+
             return redirect('articles')
 
         return render(request, 'articles/create.html', {

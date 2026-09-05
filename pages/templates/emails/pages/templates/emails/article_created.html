@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавлена новая статья</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px;">
+    <div style="max-width: 700px; margin: 0 auto; background: white; padding: 25px; border-top: 5px solid #b80000;">
+        <h1 style="color: #b80000;">
+            Добавлена новая статья
+        </h1>
+
+        <p>
+            На сайте <strong>{{ site_name }}</strong> была добавлена новая статья.
+        </p>
+
+        <h2>
+            {{ article.title }}
+        </h2>
+
+        <p>
+            <strong>Краткое описание:</strong>
+        </p>
+
+        <p>
+            {{ article.short_description }}
+        </p>
+
+        <p>
+            <strong>Дата публикации:</strong>
+            {{ article.published_at }}
+        </p>
+
+        <hr>
+
+        <p style="color: #777;">
+            Это автоматическое уведомление.
+        </p>
+    </div>
+</body>
+</html>
